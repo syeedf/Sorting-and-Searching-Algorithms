@@ -23,9 +23,24 @@ def liner_search(ls, key):
     print("{} is not in the list".format(key))
     return -1
 
+def binary_search(ls, key):
+    left=0
+    right= len(ls)-1
+    while left <= right:
+        middle =(left + right )// 2
 
-
+        if ls[middle] ==key:
+            return middle
+        if ls[middle]> key:
+            right = middle-1
+        if ls[middle]< key: 
+            left = middle + 1
+    return -1 
 sorted_nums= selection_sort(ls_of_nums)
 print(sorted_nums)
 
 liner_search(sorted_nums, 10)
+
+
+bs_position= binary_search(sorted_nums, 5)
+print(bs_position)
